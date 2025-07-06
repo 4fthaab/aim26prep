@@ -82,14 +82,12 @@
 
             const li = document.createElement("li");
             li.textContent = taskText;
-
-            // Toggle done state
             li.addEventListener("click", function () {
                 li.classList.toggle("done");
             });
 
             document.getElementById("taskList").appendChild(li);
-            document.getElementById("taskInput").value = ""; // Clear input
+            document.getElementById("taskInput").value = "";
         }
     </script>
 
