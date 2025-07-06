@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple To-Do List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            padding: 40px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        #taskInput {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 10px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        li:hover {
+            background: #f0f0f0;
+        }
+
+        li.done {
+            text-decoration: line-through;
+            color: gray;
+            background-color: #e6e6e6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>✅ To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Add a task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+            const taskText = document.getElementById("taskInput").value;
+            if (taskText === "") return;
+
+            const li = document.createElement("li");
+            li.textContent = taskText;
+
+            // Toggle done state
+            li.addEventListener("click", function () {
+                li.classList.toggle("done");
+            });
+
+            document.getElementById("taskList").appendChild(li);
+            document.getElementById("taskInput").value = ""; // Clear input
+        }
+    </script>
+
+</body>
+
+</html>
